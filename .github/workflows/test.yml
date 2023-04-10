@@ -22,7 +22,7 @@ jobs:
 
       - name: Test action with release type major and newer version
         id: major-newer
-        uses: your-username/your-action@v1
+        uses: ./
         with:
           before: '1.0.0'
           after: '2.0.0'
@@ -31,7 +31,7 @@ jobs:
 
       - name: Test action with release type major and older version
         id: major-older
-        uses: your-username/your-action@v1
+        uses: ./
         with:
           before: '2.0.0'
           after: '1.0.0'
@@ -40,7 +40,7 @@ jobs:
 
       - name: Test action with release type minor and newer version
         id: minor-newer
-        uses: your-username/your-action@v1
+        uses: ./
         with:
           before: '1.0.0'
           after: '1.1.0'
@@ -49,7 +49,7 @@ jobs:
 
       - name: Test action with release type minor and older version
         id: minor-older
-        uses: your-username/your-action@v1
+        uses: ./
         with:
           before: '1.1.0'
           after: '1.0.0'
