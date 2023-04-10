@@ -19,6 +19,46 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./
+
+      - name: Test action with release type major and newer version
+        id: major-newer
+        uses: ./
         with:
-          milliseconds: 1000
+          before: '1.0.0'
+          after: '2.0.0'
+          release_type: 'major'
+        continue-on-error: true
+
+      - name: Test action with release type major and older version
+        id: major-older
+        uses: ./
+        with:
+          before: '2.0.0'
+          after: '1.0.0'
+          release_type: 'major'
+        continue-on-error: true
+
+      - name: Test action with release type minor and newer version
+        id: minor-newer
+        uses: ./
+        with:
+          before: '1.0.0'
+          after: '1.1.0'
+          release_type: 'minor'
+        continue-on-error: true
+
+      - name: Test action with release type minor and older version
+        id: minor-older
+        uses: ./
+        with:
+          before: '1.1.0'
+          after: '1.0.0'
+          release_type: 'minor'
+        continue-on-error: true
+
+      - name: Print results
+        run: |
+          echo "Major newer version test result: ${{ job.status == 'success' && steps.major-newer.outputs.newer }}"
+          echo "Major older version test result: ${{ job.status == 'success' && !steps.major-older.outputs.newer }}"
+          echo "Minor newer version test result: ${{ job.status == 'success' && steps.minor-newer.outputs.newer }}"
+          echo "Minor older version test result: ${{ job.status == 'success' && !steps.minor-older.outputs.newer }}"
