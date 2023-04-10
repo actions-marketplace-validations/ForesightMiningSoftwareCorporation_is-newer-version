@@ -2,7 +2,9 @@
 
 GitHub Action designed to compare two semantic version numbers and determine whether the version has been updated based on its release type (major, minor, or patch).
 
-[![build-test](https://github.com/ForesightMiningSoftwareCorporation/is-newer-version/actions/workflows/build-test.yml/badge.svg)](https://github.com/ForesightMiningSoftwareCorporation/is-newer-version/actions/workflows/build-test.yml)
+<p align="center">
+  <a href="https://github.com/ForesightMiningSoftwareCorporation/is-newer-version/actions"><img alt="is-newer-version status" src="https://github.comForesightMiningSoftwareCorporation/is-newer-version/workflows/build-test/badge.svg"></a>
+</p>
 
 ## Usage
 
