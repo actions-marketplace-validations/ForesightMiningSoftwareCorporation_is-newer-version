@@ -1,5 +1,8 @@
 name: '@ForesightMiningSoftwareCorporation/is-newer-version'
-description: 'GitHub Action designed to compare two semantic version numbers and determine whether the version has been updated based on its release type (major, minor, or patch).'
+description: 'Compare semantic versions & detect updates by release type (major, minor, patch) - GitHub Action'
+branding:
+  icon: 'box'
+  color: 'green'
 author: 'ForesightMiningSoftwareCorporation'
 inputs:
   before:
@@ -13,7 +16,7 @@ inputs:
     description: 'This input specifies the release type to use when comparing the two versions. It should be provided as a string that is either "major", "minor", or "patch". If "major" is selected, the action will consider any change in the major version number to be an update. If "minor" is selected, the action will consider changes in the major or minor version numbers to be an update. Finally, if "patch" is selected, the action will only consider changes in the patch version number to be an update.'
     default: 'patch'
 outputs:
-  is-after:
+  newer:
     description: 'A boolean value indicating whether the after version is after the before version given the release type. This will be `true` if the after version is after the before version, and `false` otherwise.'
 runs:
   using: 'node16'
